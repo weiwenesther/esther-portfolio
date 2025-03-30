@@ -75,9 +75,35 @@
 
         <!-- Education section -->
         <v-container class="section d-flex justify-center align-center">
-          <v-col cols="12" class="text-center">
-            <sectionComponent section="Education"></sectionComponent>
-          </v-col>
+          <v-row
+            class="d-flex flex-column align-center"
+            style="width: 100%; max-width: 1200px"
+          >
+            <v-col cols="12" class="text-center">
+              <sectionComponent section="Education"></sectionComponent>
+            </v-col>
+
+            <!-- First Education -->
+            <v-row class="justify-center w-100 mb-8">
+              <v-col cols="12">
+                <educationComponent
+                  school="University of Nottingham"
+                  subject="Chemical Engineering with Environmental Engineering"
+                  year="2017 - 2021"
+                  :description="[
+                    'First Class Honours',
+                    'Recipient of High Achiever\'s Scholarship',
+                    'Vice President of Chemical Engineering Society',
+                  ]"
+                  :images="[
+                    'src/assets/GamudaAIAcademy/IMG_3425.JPG',
+                    'src/assets/GamudaAIAcademy/IMG_3429.JPG',
+                    'src/assets/GamudaAIAcademy/IMG_3430.JPG',
+                  ]"
+                />
+              </v-col>
+            </v-row>
+          </v-row>
         </v-container>
       </div>
     </div>
@@ -92,6 +118,7 @@ import experienceComponent from "./components/experienceComponent.vue";
 import quotesComponent from "./components/quotesComponent.vue";
 import descriptionComponent from "./components/descriptionComponent.vue";
 import pictureStackComponent from "./components/pictureStackComponent.vue";
+import educationComponent from "./components/educationComponent.vue";
 
 import { ref, onMounted, onUnmounted } from "vue";
 

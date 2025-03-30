@@ -1,16 +1,20 @@
 <template>
   <div class="education-container">
-    <div class="card">
-      <v-card flat>
-        <v-card-text>
-          <h1 class="title">{{ school }}</h1>
-          <h2 class="subtitle">{{ subject }}</h2>
-          <p class="subtitle">{{ year }}</p>
-        </v-card-text>
-        <descriptionComponent :description="description" />
-      </v-card>
+    <v-card flat class="info-section">
+      <v-card-text>
+        <h1 class="title">{{ school }}</h1>
+        <h2 class="subtitle">{{ subject }}</h2>
+        <p class="subtitle">{{ year }}</p>
+      </v-card-text>
+    </v-card>
+
+    <div class="description-section">
+      <descriptionComponent :description="description" />
     </div>
-    <pictureStackComponent :images="images" />
+
+    <div class="picture-section">
+      <pictureStackComponent :images="images" />
+    </div>
   </div>
 </template>
 
@@ -47,12 +51,31 @@ defineProps({
 .education-container {
   display: flex;
   align-items: center;
-  gap: 40px; /* Space between card and pictures */
+  justify-content: space-between;
+  gap: 30px;
+  width: 100%;
+  height: 400px;
 }
 
-.card {
-  width: 300px;
-  height: 200px;
+.info-section {
+  flex: 1;
+  min-width: 250px;
+  height: 100%;
+}
+
+.description-section {
+  flex: 1;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.picture-section {
+  flex: 1;
+  height: 100%;
+  display: flex;
+  align-items: center;
 }
 
 .title,
