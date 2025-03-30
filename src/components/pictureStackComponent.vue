@@ -21,20 +21,21 @@
 <script setup>
 import { ref, computed } from "vue";
 
+const props = defineProps({
+  images: {
+    type: Array,
+    required: true,
+    default: () => [],
+  },
+});
+
 const selectedImage = ref(null);
-const images = ref([
-  "src/assets/GamudaAIAcademy/IMG_3425.JPG",
-  "src/assets/GamudaAIAcademy/IMG_3429.JPG",
-  "src/assets/GamudaAIAcademy/IMG_3430.JPG",
-  "src/assets/GamudaAIAcademy/IMG_3433.JPG",
-  "src/assets/GamudaAIAcademy/e15dd02a-6b8a-4373-82b8-f664a4989bd9.JPG",
-]);
 
 const getTransform = (index) => {
   if (selectedImage.value === index) {
     return "scale(1.2) translateY(-20px)";
   }
-  const offset = (index - images.value.length / 2) * 20;
+  const offset = (index - props.images.length / 2) * 20;
   return `translateX(${offset}px) rotate(${-offset / 2}deg)`;
 };
 

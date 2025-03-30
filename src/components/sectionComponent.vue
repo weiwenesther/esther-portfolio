@@ -28,7 +28,7 @@ defineProps({
 }
 
 .section {
-  font-size: 64px;
+  font-size: 58px;
   font-weight: bold;
   color: whitesmoke;
   font-family: "VT323", monospace;

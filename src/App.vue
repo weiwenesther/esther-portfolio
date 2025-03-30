@@ -72,6 +72,13 @@
             </v-row>
           </v-row>
         </v-container>
+
+        <!-- Education section -->
+        <v-container class="section d-flex justify-center align-center">
+          <v-col cols="12" class="text-center">
+            <sectionComponent section="Education"></sectionComponent>
+          </v-col>
+        </v-container>
       </div>
     </div>
   </v-app>
