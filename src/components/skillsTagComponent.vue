@@ -24,7 +24,7 @@ defineProps({
   font-size: 18px;
   font-weight: bold;
   background-color: transparent;
-  margin: 10px;
+  margin: 12px;
 }
 
 .tag::before {

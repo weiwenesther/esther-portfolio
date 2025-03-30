@@ -42,7 +42,6 @@
                   position="Process and Equipment Engineer"
                   year="October 2021 - January 2024"
                   :description="[
-                    'Develop interactive Power BI dashboards for real-time data visualization, automating monitoring and analysis processes.',
                     'Collaborated with cross-functional global teams to develop and implement data-driven solutions for process enhancement, ensuring seamless alignment across manufacturing sites.',
                     'Implemented advanced analytics tools to identify root causes of process failures and suggest corrective actions.',
                   ]"
@@ -108,7 +107,6 @@ const skills = ["Vue.js", "JavaScript", "HTML", "CSS", "Python"];
 <style>
 html,
 body {
-  background-color: #282828;
   margin: 0;
   padding: 0;
   min-height: 100vh;
@@ -165,7 +163,7 @@ body {
   left: 0;
   min-height: 110vh;
   width: 100%;
-  background-color: #282828;
+  background-color: #262626;
   z-index: 2;
   display: flex;
   gap: 50px; /* Add padding between each section*/
