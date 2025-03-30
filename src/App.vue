@@ -78,6 +78,7 @@ import skillsTagComponent from "./components/skillsTagComponent.vue";
 import experienceComponent from "./components/experienceComponent.vue";
 import quotesComponent from "./components/quotesComponent.vue";
 import descriptionComponent from "./components/descriptionComponent.vue";
+import pictureStackComponent from "./components/pictureStackComponent.vue";
 
 const skills = ["Vue.js", "JavaScript", "HTML", "CSS", "Python"];
 </script>
@@ -85,7 +86,7 @@ const skills = ["Vue.js", "JavaScript", "HTML", "CSS", "Python"];
 <style>
 html,
 body {
-  background-color: black;
+  background-color: #282828;
   margin: 0;
   padding: 0;
   min-height: 100vh;

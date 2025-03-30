@@ -30,7 +30,7 @@ defineProps({
 .section {
   font-size: 64px;
   font-weight: bold;
-  color: white;
+  color: whitesmoke;
   font-family: "VT323", monospace;
   margin: 0;
 }

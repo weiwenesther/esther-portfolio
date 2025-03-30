@@ -57,13 +57,16 @@ defineProps({
   margin: 10px;
 }
 
-.flip-card {
-  perspective: 1000px;
+.flip-card,
+.flip-card-inner {
   width: 300px;
 }
 
+.flip-card {
+  perspective: 1000px;
+}
+
 .flip-card-inner {
-  width: 300px;
   height: 200px;
   position: relative;
   transition: transform 0.8s;
@@ -86,33 +89,24 @@ defineProps({
   transform: rotateY(180deg);
 }
 
-.white-bg {
-  background-color: white !important;
-  border-radius: 15px !important;
-}
-
-.text-card {
-  padding: 20px;
-  text-align: left;
+.title,
+.subtitle {
+  background: linear-gradient(90deg, #81b3fe, #e0a6f4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .title {
   font-size: 35px;
   font-weight: bold;
-  background: linear-gradient(90deg, #81b3fe, #e0a6f4);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
 }
 
 .subtitle {
-  background: linear-gradient(90deg, #81b3fe, #e0a6f4);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
   font-size: 20px;
 }
 
 .description {
-  color: white;
+  color: black;
   font-size: 16px;
   text-align: left;
   padding-left: 10px;
