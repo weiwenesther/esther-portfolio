@@ -1,8 +1,8 @@
 <template>
   <v-card class="text-card" flat>
     <v-card-text>
-      <p class="paragraph">
-        {{ paragraph }}
+      <p v-for="(item, index) in paragraph" :key="index" class="paragraph">
+        {{ item }}
       </p>
     </v-card-text>
   </v-card>
@@ -11,27 +11,19 @@
 <script setup>
 defineProps({
   paragraph: {
-    type: String,
+    type: Array,
     required: true,
+    default: () => [],
   },
 });
 </script>
 
 <style scoped>
-.text-card {
-  padding: 18px;
-  text-align: left;
-}
-
 .paragraph {
-  font-size: 18px;
-  color: white;
-  font-weight: 300;
-  line-height: 1.5;
-  margin-bottom: 20px;
-}
-
-.bold {
-  font-weight: 600;
+  font-size: 20px;
+  color: whitesmoke;
+  font-weight: 400;
+  line-height: 1;
+  /* margin-bottom: 10px; */
 }
 </style>

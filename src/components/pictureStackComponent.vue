@@ -1,77 +1,77 @@
 <template>
   <div class="main">
     <div
-      v-for="(image, index) in images"
-      :key="index"
-      :id="'picture-' + (index + 1)"
+      v-for="(image, index) in imageStack"
+      :key="image"
       class="picture-card"
-      :class="{ 'picture-selected': selectedImage === index }"
       :style="{
-        backgroundImage: `url(${image})`,
-        zIndex: selectedImage === index ? 10 : images.length - index,
+        zIndex: images.length - index,
         transform: getTransform(index),
       }"
-      @mouseover="handleHover(index)"
-      @mouseleave="resetHover"
-      @click="bringToFront(index)"
-    ></div>
+      @click="shuffleImage(index)"
+    >
+      <img :src="image" class="picture-image" />
+    </div>
   </div>
 </template>
 
 <script setup>
-import { ref, computed } from "vue";
+import { ref } from "vue";
 
 const props = defineProps({
   images: {
     type: Array,
     required: true,
-    default: () => [],
   },
 });
 
-const selectedImage = ref(null);
+const imageStack = ref([...props.images]);
 
 const getTransform = (index) => {
-  if (selectedImage.value === index) {
-    return "scale(1.2) translateY(-20px)";
-  }
-  const offset = (index - props.images.length / 2) * 20;
-  return `translateX(${offset}px) rotate(${-offset / 2}deg)`;
+  const offset = index * 5;
+  return `translateY(${offset}px) scale(${1 - index * 0.05})`;
 };
 
-const bringToFront = (index) => {
-  selectedImage.value = selectedImage.value === index ? null : index;
-};
-
-const handleHover = (index) => {
-  if (selectedImage.value === null) {
-    selectedImage.value = index;
-  }
-};
-
-const resetHover = () => {
-  if (selectedImage.value === null) {
-    selectedImage.value = null;
-  }
+const shuffleImage = (index) => {
+  const clickedImage = imageStack.value.splice(index, 1)[0];
+  imageStack.value.push(clickedImage);
 };
 </script>
 
 <style scoped>
-.picture-card {
-  width: 190px;
-  height: 254px;
-  position: absolute;
-  transition: all 0.3s ease-in-out;
-  border-radius: 20px;
-  box-shadow: 0px 0px 30px -10px rgba(0, 0, 0, 0.3);
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  cursor: pointer;
-  border-color: aliceblue;
+.main {
+  position: relative;
+  width: inherit;
+  height: inherit;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.picture-selected {
-  box-shadow: 0px 10px 40px -10px rgba(0, 0, 0, 0.5);
+.picture-card {
+  position: absolute;
+  width: 250px;
+  height: 350px;
+  transition: transform 0.4s ease-in-out, box-shadow 0.3s ease-in-out;
+  border-radius: 15px;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.picture-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 15px;
+}
+
+.picture-card:hover {
+  transform: scale(1.05) translateY(-5px);
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+.picture-card:active {
+  transform: scale(0.98);
 }
 </style>

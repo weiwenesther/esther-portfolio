@@ -87,13 +87,13 @@
             <v-row class="justify-center w-100 mb-8">
               <v-col cols="12">
                 <educationComponent
-                  school="University of Nottingham"
-                  subject="Chemical Engineering with Environmental Engineering"
-                  year="2017 - 2021"
-                  :description="[
-                    'First Class Honours',
-                    'Recipient of High Achiever\'s Scholarship',
-                    'Vice President of Chemical Engineering Society',
+                  school="Gamuda AI Academy"
+                  subject="AI and Full Stack Development"
+                  year="January - March 2025"
+                  :paragraph="[
+                    'Gained hands-on experience in AI, full-stack development, and Google Cloud Platform (GCP).',
+                    'Developed a full-stack web app using Vue.js and FastAPI for personalized meal planning.',
+                    'Integrated AI for image-based ingredient recognition and personalised recommendation system with RAG.',
                   ]"
                   :images="[
                     'src/assets/GamudaAIAcademy/IMG_3425.JPG',
@@ -184,6 +184,10 @@ body {
   left: 0;
   height: 100vh;
   width: 100%;
+  /* background-image: url("src/assets/background.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat; */
   background-color: #1a181b;
   display: flex;
   justify-content: center;
@@ -197,7 +201,7 @@ body {
   left: 0;
   min-height: 110vh;
   width: 100%;
-  background-color: #262626;
+  background-color: #333337;
   z-index: 2;
   display: flex;
   gap: 50px; /* Add padding between each section*/

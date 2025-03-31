@@ -8,13 +8,13 @@
       </v-card-text>
     </v-card>
 
-    <div class="description-section">
-      <descriptionComponent :description="description" />
+    <div class="paragraph-section">
+      <descriptionComponent :paragraph="paragraph" />
     </div>
 
-    <div class="picture-section">
-      <pictureStackComponent :images="images" />
-    </div>
+    <!-- <div class="picture-section"> -->
+    <pictureStackComponent :images="images" class="picture-section" />
+    <!-- </div> -->
   </div>
 </template>
 
@@ -35,7 +35,7 @@ defineProps({
     type: String,
     required: true,
   },
-  description: {
+  paragraph: {
     type: Array,
     required: true,
   },
@@ -54,28 +54,32 @@ defineProps({
   justify-content: space-between;
   gap: 30px;
   width: 100%;
-  height: 400px;
+  height: 100%;
+  padding: 20px;
+}
+
+.info-section,
+.paragraph-section,
+.picture-section {
+  flex: 1;
+  /* display: flex; */
+  align-items: center;
+  justify-content: center;
 }
 
 .info-section {
-  flex: 1;
   min-width: 250px;
-  height: 100%;
+  flex-direction: column;
+  text-align: center;
 }
 
-.description-section {
-  flex: 1;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  padding: 0 20px;
+.paragraph-section {
+  padding: 0 40px;
+  text-align: left;
 }
 
-.picture-section {
-  flex: 1;
-  height: 100%;
-  display: flex;
-  align-items: center;
+.picture-section img {
+  object-fit: contain;
 }
 
 .title,
@@ -83,6 +87,7 @@ defineProps({
   background: linear-gradient(90deg, #febd81, #bff4a6);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  text-align: center;
 }
 
 .title {
