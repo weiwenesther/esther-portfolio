@@ -12,9 +12,9 @@
       <descriptionComponent :paragraph="paragraph" />
     </div>
 
-    <!-- <div class="picture-section"> -->
-    <pictureStackComponent :images="images" class="picture-section" />
-    <!-- </div> -->
+    <div class="picture-section">
+      <pictureStackComponent :images="images" class="picture-section" />
+    </div>
   </div>
 </template>
 
@@ -52,19 +52,24 @@ defineProps({
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 30px;
+  gap: 10px;
   width: 100%;
   height: 100%;
   padding: 20px;
+  border-radius: 20px;
+  border: 2px solid #febd81;
+  margin: 10px;
+  background-color: #1a181b;
 }
 
 .info-section,
 .paragraph-section,
 .picture-section {
   flex: 1;
-  /* display: flex; */
+  display: flex;
   align-items: center;
   justify-content: center;
+  height: 400px;
 }
 
 .info-section {
@@ -91,11 +96,39 @@ defineProps({
 }
 
 .title {
-  font-size: 35px;
+  font-size: 38px;
   font-weight: bold;
 }
 
 .subtitle {
-  font-size: 20px;
+  font-size: 24px;
+}
+
+@media (max-width: 560px) {
+  .education-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin: 20px;
+  }
+
+  .info-section,
+  .paragraph-section,
+  .picture-section {
+    width: 100%;
+    padding: 10px;
+  }
+
+  .paragraph-section {
+    padding: 20px;
+  }
+
+  .title {
+    font-size: 28px;
+  }
+
+  .subtitle {
+    font-size: 18px;
+  }
 }
 </style>

@@ -50,8 +50,8 @@ const shuffleImage = (index) => {
 
 .picture-card {
   position: absolute;
-  width: 250px;
-  height: 350px;
+  width: 200px;
+  height: 300px;
   transition: transform 0.4s ease-in-out, box-shadow 0.3s ease-in-out;
   border-radius: 15px;
   box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);

@@ -28,10 +28,10 @@ defineProps({
 }
 
 .section {
-  font-size: 58px;
+  font-size: 60px;
   font-weight: bold;
   color: whitesmoke;
   font-family: "VT323", monospace;
-  margin: 0;
+  margin: 10px 0;
 }
 </style>

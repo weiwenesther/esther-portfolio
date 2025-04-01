@@ -7,12 +7,13 @@
           <headerComponent
             title="Hello! I'm Esther."
             subtitle="An Engineer turned Software Developer."
+            aboutMe="AI-driven web developer with a strong analytical background in process optimization and data-driven problem-solving. Experienced in integrating AI into full-stack applications. Passionate about building intelligent, user-friendly digital solutions that enhance efficiency and decision-making."
           ></headerComponent>
         </v-container>
       </div>
 
       <!-- Skills section (onto second layer)-->
-      <div class="second-layer" :class="{ show: isScrolled }">
+      <div class="second-layer">
         <v-container class="section d-flex justify-center align-center">
           <div class="d-flex flex-wrap justify-center gap-6">
             <sectionComponent section="Skills"></sectionComponent>
@@ -122,56 +123,10 @@ import educationComponent from "./components/educationComponent.vue";
 
 import { ref, onMounted, onUnmounted } from "vue";
 
-// For cool scroll effect on scroll
-const isScrolled = ref(false);
-const handleScroll = () => {
-  const scrollPosition = window.scrollY;
-  isScrolled.value = scrollPosition > window.innerHeight / 2;
-};
-onMounted(() => {
-  window.addEventListener("scroll", handleScroll);
-});
-onUnmounted(() => {
-  window.removeEventListener("scroll", handleScroll);
-});
-
 const skills = ["Vue.js", "JavaScript", "HTML", "CSS", "Python"];
 </script>
 
 <style>
-html,
-body {
-  margin: 0;
-  padding: 0;
-  min-height: 100vh;
-  overflow-x: hidden;
-}
-
-.section {
-  width: 100%;
-  padding: 0;
-  margin: 0;
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.v-container {
-  max-width: 100% !important;
-}
-
-.snap-section {
-  scroll-snap-align: start;
-  scroll-snap-stop: always;
-}
-
-.v-app {
-  height: 100vh;
-  overflow-y: scroll;
-  scroll-snap-type: y mandatory;
-}
-
 .wrapper {
   width: 100%;
   min-height: 200vh;
@@ -200,14 +155,16 @@ body {
   top: 90vh;
   left: 0;
   min-height: 110vh;
+  min-width: 100%;
   width: 100%;
-  background-color: #333337;
+  background-color: #27272c;
   z-index: 2;
   display: flex;
   gap: 50px; /* Add padding between each section*/
   padding: 50px 0;
   flex-direction: column;
   border-radius: 30px 30px 0 0;
+  overflow-x: hidden;
 }
 
 .section {
