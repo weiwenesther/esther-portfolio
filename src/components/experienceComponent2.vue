@@ -1,5 +1,10 @@
 <template>
-  <v-btn @click="isVisible = !isVisible"> This is a button </v-btn>
+  <v-btn class="button" @click="isVisible = !isVisible">
+    <div class="button-content">
+      <div class="experience">{{ experience }}</div>
+      <div class="year">{{ year }}</div>
+    </div>
+  </v-btn>
 
   <v-expand-transition>
     <v-container
@@ -8,14 +13,11 @@
         'active-content-container': isVisible,
         'inactive-content-container': !isVisible,
       }"
-      >Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-      veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-      commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-      velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-      cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
-      est laborum.</v-container
     >
+      <div v-if="description && description.length > 0">
+        <p v-for="(item, index) in description" :key="index">{{ item }}</p>
+      </div>
+    </v-container>
   </v-expand-transition>
 </template>
 
@@ -23,11 +25,62 @@
 import { ref } from "vue";
 
 const isVisible = ref(false);
+
+const props = defineProps({
+  experience: {
+    type: String,
+    required: true,
+  },
+  year: {
+    type: String,
+    required: true,
+  },
+  description: {
+    type: Array,
+    default: () => [],
+  },
+  initialState: {
+    type: Boolean,
+    default: false,
+  },
+});
+
+// Set initial visibility state from props
+isVisible.value = props.initialState;
 </script>
 
 <style scoped>
+.button {
+  border-radius: 10px;
+  margin: 10px;
+  padding: 10px;
+  width: 100%;
+  height: auto;
+}
+
+.button-content {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+}
+
+.experience {
+  font-weight: bold;
+  text-align: left;
+}
+
+.year {
+  text-align: right;
+  margin-left: 20px;
+}
+
 .active-content-container {
   display: block;
+  margin-top: 5px;
+  padding: 15px;
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 0.05);
 }
 
 .inactive-content-container {
