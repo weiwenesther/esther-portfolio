@@ -1,28 +1,41 @@
+<!-- Accordian -->
 <template>
-  <v-btn class="button" @click="isVisible = !isVisible">
-    <div class="button-content">
-      <div class="experience">{{ experience }}</div>
-      <div class="year">{{ year }}</div>
-    </div>
-  </v-btn>
-
-  <v-expand-transition>
-    <v-container
-      v-if="isVisible"
-      :class="{
-        'active-content-container': isVisible,
-        'inactive-content-container': !isVisible,
-      }"
-    >
-      <div v-if="description && description.length > 0">
-        <p v-for="(item, index) in description" :key="index">{{ item }}</p>
+  <div class="wrapper">
+    <v-btn class="button" @click="isVisible = !isVisible">
+      <div class="button-content">
+        <div class="experience">{{ experience }}</div>
+        <div class="year">{{ year }}</div>
       </div>
-    </v-container>
-  </v-expand-transition>
+    </v-btn>
+
+    <transition name="fade" mode="out-in">
+      <v-container
+        v-if="isVisible"
+        :class="{
+          'active-content-container': isVisible,
+          'inactive-content-container': !isVisible,
+        }"
+      >
+        <div v-if="description && description.length > 0">
+          <p v-for="(item, index) in description" :key="index">{{ item }}</p>
+        </div>
+
+        <!-- Skills tags section -->
+        <div v-if="skills && skills.length > 0" class="skills-container">
+          <skillsTagComponent
+            v-for="(skill, index) in skills"
+            :key="index"
+            :text="skill"
+          />
+        </div>
+      </v-container>
+    </transition>
+  </div>
 </template>
 
 <script setup>
 import { ref } from "vue";
+import skillsTagComponent from "./skillsTagComponent.vue";
 
 const isVisible = ref(false);
 
@@ -39,6 +52,10 @@ const props = defineProps({
     type: Array,
     default: () => [],
   },
+  skills: {
+    type: Array,
+    default: () => [],
+  },
   initialState: {
     type: Boolean,
     default: false,
@@ -50,7 +67,13 @@ isVisible.value = props.initialState;
 </script>
 
 <style scoped>
+.wrapper {
+  position: relative;
+  width: 100%;
+}
 .button {
+  position: relative;
+  z-index: 1;
   border-radius: 10px;
   margin: 10px;
   padding: 10px;
@@ -60,7 +83,7 @@ isVisible.value = props.initialState;
 
 .button-content {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
   width: 100%;
   align-items: center;
 }
@@ -68,11 +91,19 @@ isVisible.value = props.initialState;
 .experience {
   font-weight: bold;
   text-align: left;
+  font-size: 1.5rem;
+  background: linear-gradient(90deg, #81b3fe, #e0a6f4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .year {
   text-align: right;
+  font-size: 1.25rem;
   margin-left: 20px;
+  background: linear-gradient(90deg, #81b3fe, #e0a6f4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .active-content-container {
@@ -85,5 +116,23 @@ isVisible.value = props.initialState;
 
 .inactive-content-container {
   display: none;
+}
+
+.skills-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3px;
+  margin-top: 15px;
+}
+
+/* Fade transition */
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.4s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
 }
 </style>

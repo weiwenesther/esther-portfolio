@@ -1,3 +1,4 @@
+<!-- Flip card -->
 <template>
   <div class="flip-card-wrapper">
     <div class="flip-card">

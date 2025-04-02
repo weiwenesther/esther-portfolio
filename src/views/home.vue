@@ -34,7 +34,8 @@
             <v-col cols="12" class="text-center">
               <sectionComponent section="Experiences"></sectionComponent>
             </v-col>
-            <v-row class="justify-center gap-4">
+            <!-- cards -->
+            <!-- <v-row class="justify-center gap-4">
               <v-col cols="12" md="6" lg="4">
                 <experienceComponent
                   experience="Intel Corporation"
@@ -68,6 +69,20 @@
                   ]"
                 ></experienceComponent>
               </v-col>
+            </v-row> -->
+
+            <v-row class="justify-center gap-4">
+              <div>
+                <experienceComponent2
+                  experience="Software Engineer"
+                  year="2020-2023"
+                  :description="[
+                    'Developed full-stack applications',
+                    'Led a team of 5 developers',
+                  ]"
+                  :skills="['Vue.js', 'JavaScript', 'Node.js', 'Express']"
+                />
+              </div>
             </v-row>
           </v-row>
         </v-container>
@@ -135,6 +150,7 @@ import quotesComponent from "../components/quotesComponent.vue";
 import descriptionComponent from "../components/descriptionComponent.vue";
 import pictureStackComponent from "../components/pictureStackComponent.vue";
 import educationComponent from "../components/educationComponent.vue";
+import experienceComponent2 from "../components/experienceComponent2.vue";
 
 import { ref, onMounted, onUnmounted } from "vue";
 
