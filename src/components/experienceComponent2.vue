@@ -69,16 +69,21 @@ isVisible.value = props.initialState;
 <style scoped>
 .wrapper {
   position: relative;
-  width: 100%;
+  /* width: 600px; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
+
 .button {
   position: relative;
   z-index: 1;
   border-radius: 10px;
   margin: 10px;
   padding: 10px;
-  width: 100%;
+  width: 500px;
   height: auto;
+  border: 2px solid #81b3fe;
 }
 
 .button-content {

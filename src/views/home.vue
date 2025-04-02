@@ -72,7 +72,7 @@
             </v-row> -->
 
             <v-row class="justify-center gap-4">
-              <div>
+              <div class="d-flex justify-center align-center">
                 <experienceComponent2
                   experience="Software Engineer"
                   year="2020-2023"

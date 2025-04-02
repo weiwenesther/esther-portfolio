@@ -49,6 +49,7 @@ defineProps({
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
+  padding-bottom: 10px;
 }
 
 .styled-text {
