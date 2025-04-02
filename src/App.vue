@@ -12,8 +12,9 @@
         </v-container>
       </div>
 
-      <!-- Skills section (onto second layer)-->
+      <!-- Second layer-->
       <div class="second-layer">
+        <!-- Skills section -->
         <v-container class="section d-flex justify-center align-center">
           <div class="d-flex flex-wrap justify-center gap-6">
             <sectionComponent section="Skills"></sectionComponent>
@@ -29,10 +30,7 @@
 
         <!-- Experience section -->
         <v-container class="section d-flex justify-center align-center">
-          <v-row
-            class="d-flex flex-column align-center"
-            style="width: 100%; max-width: 1200px"
-          >
+          <v-row class="d-flex flex-column align-center" style="width: 100%">
             <v-col cols="12" class="text-center">
               <sectionComponent section="Experiences"></sectionComponent>
             </v-col>
@@ -76,17 +74,32 @@
 
         <!-- Education section -->
         <v-container class="section d-flex justify-center align-center">
-          <v-row
-            class="d-flex flex-column align-center"
-            style="width: 100%; max-width: 1200px"
-          >
+          <v-row class="d-flex align-center">
             <v-col cols="12" class="text-center">
               <sectionComponent section="Education"></sectionComponent>
             </v-col>
 
-            <!-- First Education -->
-            <v-row class="justify-center w-100 mb-8">
-              <v-col cols="12">
+            <v-row class="justify-center mb-8">
+              <!-- First Education -->
+              <v-col cols="12" md="5">
+                <educationComponent
+                  school="Gamuda AI Academy"
+                  subject="AI and Full Stack Development"
+                  year="January - March 2025"
+                  :paragraph="[
+                    'Gained hands-on experience in AI, full-stack development, and Google Cloud Platform (GCP).',
+                    'Developed a full-stack web app using Vue.js and FastAPI for personalized meal planning.',
+                    'Integrated AI for image-based ingredient recognition and personalised recommendation system with RAG.',
+                  ]"
+                  :images="[
+                    'src/assets/GamudaAIAcademy/IMG_3425.JPG',
+                    'src/assets/GamudaAIAcademy/IMG_3429.JPG',
+                    'src/assets/GamudaAIAcademy/IMG_3430.JPG',
+                  ]"
+                />
+              </v-col>
+              <!-- Second Education -->
+              <v-col cols="12" md="5">
                 <educationComponent
                   school="Gamuda AI Academy"
                   subject="AI and Full Stack Development"

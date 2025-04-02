@@ -41,8 +41,8 @@ const shuffleImage = (index) => {
 <style scoped>
 .main {
   position: relative;
-  width: inherit;
-  height: inherit;
+  width: 100%;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -50,8 +50,10 @@ const shuffleImage = (index) => {
 
 .picture-card {
   position: absolute;
-  width: 200px;
-  height: 300px;
+  width: 80%;
+  max-width: 260px;
+  height: auto;
+  aspect-ratio: 3/4;
   transition: transform 0.4s ease-in-out, box-shadow 0.3s ease-in-out;
   border-radius: 15px;
   box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
