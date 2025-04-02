@@ -74,8 +74,26 @@
             <v-row class="justify-center gap-4">
               <div class="d-flex justify-center align-center">
                 <experienceComponent2
-                  experience="Software Engineer"
-                  year="2020-2023"
+                  experience="Process and Equipment Engineer @ Intel Corporation"
+                  year="October 2021 - January 2025"
+                  :description="[
+                    'Developed full-stack applications',
+                    'Led a team of 5 developers',
+                  ]"
+                  :skills="['Vue.js', 'JavaScript', 'Node.js', 'Express']"
+                />
+                <experienceComponent2
+                  experience="Process and Equipment Engineer @ Intel Corporation"
+                  year="October 2021 - January 2025"
+                  :description="[
+                    'Developed full-stack applications',
+                    'Led a team of 5 developers',
+                  ]"
+                  :skills="['Vue.js', 'JavaScript', 'Node.js', 'Express']"
+                />
+                <experienceComponent2
+                  experience="Process and Equipment Engineer @ Intel Corporation"
+                  year="October 2021 - January 2025"
                   :description="[
                     'Developed full-stack applications',
                     'Led a team of 5 developers',
@@ -160,7 +178,7 @@ const skills = ["Vue.js", "JavaScript", "HTML", "CSS", "Python"];
 <style>
 .wrapper {
   width: 100%;
-  min-height: 200vh;
+  /* min-height: 200vh; */
   overflow-x: hidden;
 }
 

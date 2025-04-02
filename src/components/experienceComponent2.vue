@@ -1,7 +1,11 @@
 <!-- Accordian -->
 <template>
-  <div class="wrapper">
-    <v-btn class="button" @click="isVisible = !isVisible">
+  <div
+    class="wrapper"
+    @mouseenter="isVisible = true"
+    @mouseleave="isVisible = false"
+  >
+    <v-btn class="button">
       <div class="button-content">
         <div class="experience">{{ experience }}</div>
         <div class="year">{{ year }}</div>
@@ -81,9 +85,15 @@ isVisible.value = props.initialState;
   border-radius: 10px;
   margin: 10px;
   padding: 10px;
-  width: 500px;
+  width: 580px;
   height: auto;
   border: 2px solid #81b3fe;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.button:hover {
+  transform: scale(1.02);
+  box-shadow: 0 4px 8px rgba(129, 179, 254, 0.3);
 }
 
 .button-content {
@@ -96,7 +106,7 @@ isVisible.value = props.initialState;
 .experience {
   font-weight: bold;
   text-align: left;
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   background: linear-gradient(90deg, #81b3fe, #e0a6f4);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -104,7 +114,6 @@ isVisible.value = props.initialState;
 
 .year {
   text-align: right;
-  font-size: 1.25rem;
   margin-left: 20px;
   background: linear-gradient(90deg, #81b3fe, #e0a6f4);
   -webkit-background-clip: text;
