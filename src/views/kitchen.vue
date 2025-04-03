@@ -1,48 +1,40 @@
 <template>
-  <v-row>
-    <v-col>
-      <div class="d-flex flex-row flex-wrap gap-4 justify-center">
-        <experienceComponent2
-          v-for="exp in experiences"
-          :key="exp.id"
-          v-bind="exp"
-          :is-active="activeExperienceId === exp.id"
-          @mouse-enter="activeExperienceId = exp.id"
-        />
-      </div>
-    </v-col>
-  </v-row>
+  <div class="d-flex flex-row flex-wrap gap-4 justify-center">
+    <educationComponent2
+      v-for="edu in education"
+      :key="edu.id"
+      :education="edu.school"
+      :description="edu.subject"
+      :year="edu.year"
+      :imageSrc="edu.image"
+    />
+  </div>
 </template>
 
 <script setup>
-import experienceComponent2 from "../components/experienceComponent2.vue";
+import educationComponent2 from "../components/educationComponent2.vue";
+import { ref } from "vue";
 
-import { ref, provide } from "vue";
-
-const activeExperienceId = ref(null);
-
-const experiences = [
+const education = [
   {
-    id: "exp1",
-    experience: "Process and Equipment Engineer @ Intel Corporation",
-    year: "October 2021 - January 2025",
-    description: [
-      "Developed full-stack applications",
-      "Led a team of 5 developers",
-    ],
-    skills: ["Vue.js", "JavaScript", "Node.js", "Express"],
+    id: "edu1",
+    school: "Gamuda AI Academy",
+    subject: "AI and Full Stack Development",
+    year: "January - March 2025",
+    image: "src/assets/GamudaAIAcademy/IMG_3430.JPG",
   },
   {
-    id: "exp2",
-    experience: "Process and Equipment Engineer @ Intel Corporation",
-    year: "October 2021 - January 2025",
-    description: [
-      "Developed full-stack applications",
-      "Led a team of 5 developers",
-    ],
-    skills: ["Vue.js", "JavaScript", "Node.js", "Express"],
+    id: "edu2",
+    school: "University of Nottingham",
+    subject: "MEng in Chemical Engineering",
+    year: "September 2017 - August 2021",
+    image: "src/assets/Nottingham/IMG_3498.JPG",
   },
 ];
 </script>
 
-<style scoped></style>
+<style scoped>
+.d-flex {
+  margin: 2rem 0;
+}
+</style>
