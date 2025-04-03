@@ -82,7 +82,7 @@ const handleMouseMove = (event) => {
 
 .image-container {
   position: fixed;
-  left: calc(50% + 120px); /* Position it to the right of the center */
+  left: calc(50% + 150px); /* Position it to the right of the center */
   width: 300px;
   height: auto;
   border-radius: 8px;
@@ -105,6 +105,8 @@ const handleMouseMove = (event) => {
   border-left: 3px solid #fbae95;
   background-color: rgba(255, 255, 255, 0.1);
   transform: translateX(5px);
+  box-shadow: 0 0 15px rgba(251, 174, 149, 0.5),
+    0 0 30px rgba(171, 131, 254, 0.3);
 }
 
 .education-content {
