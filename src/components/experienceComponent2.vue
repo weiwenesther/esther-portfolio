@@ -65,7 +65,7 @@ const props = defineProps({
 });
 
 // Only open one experience at a time
-const activeId = inject("activeId", ref(null));
+const activeId = inject("activeId", ref(null)); //get the activeId
 const setActiveId = inject("setActiveId", null);
 
 // function to create activeId if none provided
