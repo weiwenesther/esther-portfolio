@@ -34,71 +34,13 @@
             <v-col cols="12" class="text-center">
               <sectionComponent section="Experiences"></sectionComponent>
             </v-col>
-            <!-- cards -->
-            <!-- <v-row class="justify-center gap-4">
-              <v-col cols="12" md="6" lg="4">
-                <experienceComponent
-                  experience="Intel Corporation"
-                  position="Process and Equipment Engineer"
-                  year="October 2021 - January 2024"
-                  :description="[
-                    'Collaborated with cross-functional global teams to develop and implement data-driven solutions for process enhancement, ensuring seamless alignment across manufacturing sites.',
-                    'Implemented advanced analytics tools to identify root causes of process failures and suggest corrective actions.',
-                  ]"
-                ></experienceComponent>
-              </v-col>
-              <v-col cols="12" md="6" lg="4">
-                <experienceComponent
-                  experience="University of Nottingham"
-                  position="Research Assistant"
-                  year="June 2020 - September 2020"
-                  :description="[
-                    'Developed an Artificial Neural Network (ANN) model in MATLAB to predict adsorption processes in wastewater treatment, optimizing efficiency.',
-                    'Conducted data-driven analysis and authored a technical publication on AI applications in chemical engineering.',
-                  ]"
-                ></experienceComponent>
-              </v-col>
-              <v-col cols="12" md="6" lg="4">
-                <experienceComponent
-                  experience="SynergenOG"
-                  position="Process Safety Engineer Internship"
-                  year="June 2019 - September 2019"
-                  :description="[
-                    'Conducted Fire and Explosion Analysis & Quantitative Risk Analysis (QRA) using PHAST modeling for a petrochemical refinery plant.',
-                    'Designed statistical risk models to assess safety compliance and mitigate hazards.',
-                  ]"
-                ></experienceComponent>
-              </v-col>
-            </v-row> -->
 
             <v-row class="justify-center gap-4">
               <div class="d-flex justify-center align-center">
                 <experienceComponent2
-                  experience="Process and Equipment Engineer @ Intel Corporation"
-                  year="October 2021 - January 2025"
-                  :description="[
-                    'Developed full-stack applications',
-                    'Led a team of 5 developers',
-                  ]"
-                  :skills="['Vue.js', 'JavaScript', 'Node.js', 'Express']"
-                />
-                <experienceComponent2
-                  experience="Process and Equipment Engineer @ Intel Corporation"
-                  year="October 2021 - January 2025"
-                  :description="[
-                    'Developed full-stack applications',
-                    'Led a team of 5 developers',
-                  ]"
-                  :skills="['Vue.js', 'JavaScript', 'Node.js', 'Express']"
-                />
-                <experienceComponent2
-                  experience="Process and Equipment Engineer @ Intel Corporation"
-                  year="October 2021 - January 2025"
-                  :description="[
-                    'Developed full-stack applications',
-                    'Led a team of 5 developers',
-                  ]"
-                  :skills="['Vue.js', 'JavaScript', 'Node.js', 'Express']"
+                  v-for="exp in experiences"
+                  :key="exp.id"
+                  v-bind="exp"
                 />
               </div>
             </v-row>
@@ -111,45 +53,6 @@
             <v-row>
               <v-col cols="12" class="text-center">
                 <sectionComponent section="Education"></sectionComponent>
-              </v-col>
-            </v-row>
-
-            <v-row class="justify-center gap-4">
-              <!-- First Education -->
-              <v-col cols="12" md="6" class="d-flex justify-center">
-                <educationComponent
-                  school="Gamuda AI Academy"
-                  subject="AI and Full Stack Development"
-                  year="January - March 2025"
-                  :paragraph="[
-                    'Gained hands-on experience in AI, full-stack development, and Google Cloud Platform (GCP).',
-                    'Developed a full-stack web app using Vue.js and FastAPI for personalized meal planning.',
-                    'Integrated AI for image-based ingredient recognition and personalised recommendation system with RAG.',
-                  ]"
-                  :images="[
-                    'src/assets/GamudaAIAcademy/IMG_3425.JPG',
-                    'src/assets/GamudaAIAcademy/IMG_3429.JPG',
-                    'src/assets/GamudaAIAcademy/IMG_3430.JPG',
-                  ]"
-                />
-              </v-col>
-              <!-- Second Education -->
-              <v-col cols="12" md="6" class="d-flex justify-center">
-                <educationComponent
-                  school="Gamuda AI Academy"
-                  subject="AI and Full Stack Development"
-                  year="January - March 2025"
-                  :paragraph="[
-                    'Gained hands-on experience in AI, full-stack development, and Google Cloud Platform (GCP).',
-                    'Developed a full-stack web app using Vue.js and FastAPI for personalized meal planning.',
-                    'Integrated AI for image-based ingredient recognition and personalised recommendation system with RAG.',
-                  ]"
-                  :images="[
-                    'src/assets/GamudaAIAcademy/IMG_3425.JPG',
-                    'src/assets/GamudaAIAcademy/IMG_3429.JPG',
-                    'src/assets/GamudaAIAcademy/IMG_3430.JPG',
-                  ]"
-                />
               </v-col>
             </v-row>
           </div>
@@ -173,6 +76,18 @@ import experienceComponent2 from "../components/experienceComponent2.vue";
 import { ref, onMounted, onUnmounted } from "vue";
 
 const skills = ["Vue.js", "JavaScript", "HTML", "CSS", "Python"];
+const experiences = [
+  {
+    id: "exp1",
+    experience: "Process and Equipment Engineer @ Intel Corporation",
+    year: "October 2021 - January 2025",
+    description: [
+      "Developed full-stack applications",
+      "Led a team of 5 developers",
+    ],
+    skills: ["Vue.js", "JavaScript", "Node.js", "Express"],
+  },
+];
 </script>
 
 <style>

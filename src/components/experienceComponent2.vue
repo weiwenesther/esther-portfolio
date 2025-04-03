@@ -1,10 +1,6 @@
 <!-- Accordian -->
 <template>
-  <div
-    class="wrapper"
-    @mouseenter="isVisible = true"
-    @mouseleave="isVisible = false"
-  >
+  <div class="wrapper" @mouseenter="handleMouseEnter">
     <v-btn class="button">
       <div class="button-content">
         <div class="experience">{{ experience }}</div>
@@ -38,12 +34,14 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { ref, inject, provide, watch, onMounted } from "vue";
 import skillsTagComponent from "./skillsTagComponent.vue";
 
-const isVisible = ref(false);
-
 const props = defineProps({
+  id: {
+    type: [String, Number],
+    required: true,
+  },
   experience: {
     type: String,
     required: true,
@@ -66,8 +64,40 @@ const props = defineProps({
   },
 });
 
-// Set initial visibility state from props
-isVisible.value = props.initialState;
+// Only open one experience at a time
+const activeId = inject("activeId", ref(null));
+const setActiveId = inject("setActiveId", null);
+
+// function to create activeId if none provided
+if (!setActiveId) {
+  provide("activeId", activeId);
+  provide("setActiveId", (id) => {
+    activeId.value = id;
+  });
+}
+
+const isVisible = ref(false);
+
+// Updating the activeId, when hovering, the item becomes active
+const handleMouseEnter = () => {
+  if (setActiveId) {
+    setActiveId(props.id);
+  } else {
+    activeId.value = props.id;
+  }
+};
+
+// Only show if it's the active experience
+watch(activeId, (newId) => {
+  isVisible.value = newId === props.id;
+});
+
+onMounted(() => {
+  isVisible.value = props.initialState;
+  if (props.initialState && setActiveId) {
+    setActiveId(props.id);
+  }
+});
 </script>
 
 <style scoped>
