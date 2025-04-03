@@ -32,6 +32,6 @@ defineProps({
   font-weight: bold;
   color: whitesmoke;
   font-family: "VT323", monospace;
-  margin: 10px 0;
+  margin: 20px 0;
 }
 </style>
