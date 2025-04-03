@@ -2,8 +2,9 @@
   <div class="hover-container">
     <div
       class="hover-box"
-      @mouseenter="isHovered = true"
-      @mouseleave="isHovered = false"
+      @mouseenter="handleMouseEnter"
+      @mouseleave="handleMouseLeave"
+      @mousemove="handleMouseMove"
     >
       <div class="education-content">
         <h3 class="education-title">{{ education }}</h3>
@@ -15,7 +16,7 @@
     </div>
 
     <transition name="fade-slide">
-      <div v-if="isHovered" class="image-container">
+      <div v-if="isHovered" class="image-container" :style="imagePosition">
         <img :src="imageSrc" class="hover-image" />
       </div>
     </transition>
@@ -23,7 +24,7 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { ref, computed } from "vue";
 
 const props = defineProps({
   imageSrc: {
@@ -45,6 +46,28 @@ const props = defineProps({
 });
 
 const isHovered = ref(false);
+
+const handleMouseEnter = () => {
+  isHovered.value = true;
+};
+
+const handleMouseLeave = () => {
+  isHovered.value = false;
+};
+
+const mouseY = ref(0);
+
+const imagePosition = computed(() => {
+  return {
+    top: `${mouseY.value}px`,
+    transform: "translateY(-50%)",
+  };
+});
+
+const handleMouseMove = (event) => {
+  // Get the mouse position relative to the viewport
+  mouseY.value = event.clientY;
+};
 </script>
 
 <style scoped>
@@ -55,6 +78,18 @@ const isHovered = ref(false);
   width: 100%;
   max-width: 800px;
   margin: 20px 0;
+}
+
+.image-container {
+  position: fixed;
+  left: calc(50% + 120px); /* Position it to the right of the center */
+  width: 300px;
+  height: auto;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  z-index: 10;
+  pointer-events: none;
 }
 
 .hover-box {
@@ -102,16 +137,16 @@ const isHovered = ref(false);
 }
 
 .image-container {
-  position: absolute;
-  right: -320px;
-  top: 50%;
-  transform: translateY(-50%);
+  position: fixed;
+  right: 100px;
   width: 300px;
   height: auto;
   border-radius: 8px;
   overflow: hidden;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
   z-index: 10;
+  pointer-events: none; /* Ensures the image doesn't interfere with mouse events */
+  margin-left: 20px; /* Add some space between the content and image */
 }
 
 .hover-image {
@@ -120,15 +155,13 @@ const isHovered = ref(false);
   display: block;
 }
 
-/* Transition for the image */
 .fade-slide-enter-active,
 .fade-slide-leave-active {
-  transition: all 0.3s ease;
+  transition: opacity 0.3s ease;
 }
 
 .fade-slide-enter-from,
 .fade-slide-leave-to {
   opacity: 0;
-  transform: translateX(-20px) translateY(-50%);
 }
 </style>
