@@ -1,6 +1,6 @@
 <!-- Accordian -->
 <template>
-  <div class="wrapper" @mouseenter="handleMouseEnter">
+  <div class="wrapper" @mouseenter="$emit('mouse-enter')">
     <v-btn class="button">
       <div class="button-content">
         <div class="experience">{{ experience }}</div>
@@ -10,10 +10,10 @@
 
     <transition name="fade" mode="out-in">
       <v-container
-        v-if="isVisible"
+        v-if="isActive"
         :class="{
-          'active-content-container': isVisible,
-          'inactive-content-container': !isVisible,
+          'active-content-container': isActive,
+          'inactive-content-container': !isActive,
         }"
       >
         <div v-if="description && description.length > 0">
@@ -34,7 +34,7 @@
 </template>
 
 <script setup>
-import { ref, inject, provide, watch, onMounted } from "vue";
+import { ref } from "vue";
 import skillsTagComponent from "./skillsTagComponent.vue";
 
 const props = defineProps({
@@ -58,46 +58,13 @@ const props = defineProps({
     type: Array,
     default: () => [],
   },
-  initialState: {
+  isActive: {
     type: Boolean,
     default: false,
   },
 });
 
-// Only open one experience at a time
-const activeId = inject("activeId", ref(null)); //get the activeId
-const setActiveId = inject("setActiveId", null);
-
-// function to create activeId if none provided
-if (!setActiveId) {
-  provide("activeId", activeId);
-  provide("setActiveId", (id) => {
-    activeId.value = id; //update active item
-  });
-}
-
-const isVisible = ref(false);
-
-// Updating the activeId, when hovering, the item becomes active
-const handleMouseEnter = () => {
-  if (setActiveId) {
-    setActiveId(props.id);
-  } else {
-    activeId.value = props.id;
-  }
-};
-
-// Only show if it's the active experience
-watch(activeId, (newId) => {
-  isVisible.value = newId === props.id;
-});
-
-onMounted(() => {
-  isVisible.value = props.initialState;
-  if (props.initialState && setActiveId) {
-    setActiveId(props.id);
-  }
-});
+defineEmits(["mouse-enter"]);
 </script>
 
 <style scoped>

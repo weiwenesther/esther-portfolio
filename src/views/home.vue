@@ -36,11 +36,13 @@
             </v-col>
 
             <v-row class="justify-center gap-4">
-              <div class="d-flex justify-center align-center">
+              <div class="d-flex justify-center align-center flex-column">
                 <experienceComponent2
                   v-for="exp in experiences"
                   :key="exp.id"
                   v-bind="exp"
+                  :is-active="activeExperienceId === exp.id"
+                  @mouse-enter="activeExperienceId = exp.id"
                 />
               </div>
             </v-row>
@@ -73,12 +75,25 @@ import pictureStackComponent from "../components/pictureStackComponent.vue";
 import educationComponent from "../components/educationComponent.vue";
 import experienceComponent2 from "../components/experienceComponent2.vue";
 
-import { ref, onMounted, onUnmounted } from "vue";
+import { ref } from "vue";
+
+// Remove the provide/inject pattern
+const activeExperienceId = ref(null);
 
 const skills = ["Vue.js", "JavaScript", "HTML", "CSS", "Python"];
 const experiences = [
   {
     id: "exp1",
+    experience: "Process and Equipment Engineer @ Intel Corporation",
+    year: "October 2021 - January 2025",
+    description: [
+      "Developed full-stack applications",
+      "Led a team of 5 developers",
+    ],
+    skills: ["Vue.js", "JavaScript", "Node.js", "Express"],
+  },
+  {
+    id: "exp2",
     experience: "Process and Equipment Engineer @ Intel Corporation",
     year: "October 2021 - January 2025",
     description: [

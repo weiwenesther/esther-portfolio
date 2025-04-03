@@ -4,12 +4,18 @@
       v-for="exp in experiences"
       :key="exp.id"
       v-bind="exp"
+      :is-active="activeExperienceId === exp.id"
+      @mouse-enter="activeExperienceId = exp.id"
     />
   </div>
 </template>
 
 <script setup>
 import experienceComponent2 from "../components/experienceComponent2.vue";
+
+import { ref, provide } from "vue";
+
+const activeExperienceId = ref(null);
 
 const experiences = [
   {
