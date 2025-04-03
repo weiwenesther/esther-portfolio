@@ -21,8 +21,9 @@
             <div>
               <skillsTagComponent
                 v-for="skill in skills"
-                :key="skill"
-                :text="skill"
+                :key="skill.name"
+                :text="skill.name"
+                :imageSrc="skill.image"
               ></skillsTagComponent>
             </div>
           </div>
@@ -89,10 +90,20 @@ import educationComponent2 from "../components/educationComponent2.vue";
 
 import { ref } from "vue";
 
+const skills = [
+  {
+    name: "Vue.js",
+    image: "src/assets/logos/vue.svg",
+  },
+  { name: "JavaScript", image: "src/assets/logos/Javascript-logo.png" },
+  { name: "HTML", image: "src/assets/logos/html-5.png" },
+  { name: "CSS", image: "src/assets/logos/css3.png" },
+  { name: "Python", image: "src/assets/logos/python-logo.png" },
+  { name: "PowerBI", image: "src/assets/logos/powerBI.png" },
+];
+
 // Remove the provide/inject pattern
 const activeExperienceId = ref(null);
-
-const skills = ["Vue.js", "JavaScript", "HTML", "CSS", "Python", "PowerBI"];
 const experiences = [
   {
     id: "exp1",

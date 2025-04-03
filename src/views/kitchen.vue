@@ -21,7 +21,7 @@ const skills = [
   },
   { name: "JavaScript", image: "src/assets/logos/Javascript-logo.png" },
   { name: "HTML", image: "src/assets/logos/html-5.png" },
-  { name: "CSS", image: "src/assets/logos/CSS3.webp" },
+  { name: "CSS", image: "src/assets/logos/css3.png" },
   { name: "Python", image: "src/assets/logos/python-logo.png" },
   { name: "PowerBI", image: "src/assets/logos/powerBI.png" },
 ];
