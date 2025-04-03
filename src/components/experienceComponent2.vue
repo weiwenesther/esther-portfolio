@@ -72,7 +72,7 @@ const setActiveId = inject("setActiveId", null);
 if (!setActiveId) {
   provide("activeId", activeId);
   provide("setActiveId", (id) => {
-    activeId.value = id;
+    activeId.value = id; //update active item
   });
 }
 
