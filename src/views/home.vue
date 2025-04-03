@@ -51,13 +51,24 @@
 
         <!-- Education section -->
         <v-container class="section d-flex justify-center align-center">
-          <div style="width: 100%; max-width: 1200px">
-            <v-row>
-              <v-col cols="12" class="text-center">
-                <sectionComponent section="Education"></sectionComponent>
-              </v-col>
-            </v-row>
-          </div>
+          <v-row>
+            <v-col cols="12" class="text-center">
+              <sectionComponent section="Education"></sectionComponent>
+            </v-col>
+
+            <v-col cols="12" class="text-center">
+              <div class="d-flex flex-row flex-wrap gap-4 justify-center">
+                <educationComponent2
+                  v-for="edu in education"
+                  :key="edu.id"
+                  :education="edu.school"
+                  :description="edu.subject"
+                  :year="edu.year"
+                  :imageSrc="edu.image"
+                />
+              </div>
+            </v-col>
+          </v-row>
         </v-container>
       </div>
     </div>
@@ -74,6 +85,7 @@ import descriptionComponent from "../components/descriptionComponent.vue";
 import pictureStackComponent from "../components/pictureStackComponent.vue";
 import educationComponent from "../components/educationComponent.vue";
 import experienceComponent2 from "../components/experienceComponent2.vue";
+import educationComponent2 from "../components/educationComponent2.vue";
 
 import { ref } from "vue";
 
@@ -100,6 +112,23 @@ const experiences = [
       "Authored a technical paper on the research findings.",
     ],
     skills: ["MATLAB", "Technical Writing", "Machine Learning"],
+  },
+];
+
+const education = [
+  {
+    id: "edu1",
+    school: "Gamuda AI Academy",
+    subject: "AI and Full Stack Development",
+    year: "January - March 2025",
+    image: "src/assets/GamudaAIAcademy/IMG_3430.JPG",
+  },
+  {
+    id: "edu2",
+    school: "University of Nottingham",
+    subject: "MEng in Chemical Engineering",
+    year: "September 2017 - August 2021",
+    image: "src/assets/Nottingham/IMG_3498.JPG",
   },
 ];
 </script>
