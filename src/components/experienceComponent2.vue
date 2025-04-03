@@ -90,7 +90,7 @@ defineEmits(["mouse-enter"]);
 
 .button:hover {
   transform: scale(1.02);
-  box-shadow: 0 4px 8px rgba(129, 179, 254, 0.3);
+  box-shadow: 0 0 15px rgba(129, 179, 254, 0.5), 0 0 30px rgba(224, 166, 244, 0.3);
 }
 
 .button-content {
