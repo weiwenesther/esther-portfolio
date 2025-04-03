@@ -36,7 +36,7 @@
             </v-col>
 
             <v-row class="justify-center gap-4">
-              <div class="d-flex justify-center align-center flex-column">
+              <div class="experienceComponent">
                 <experienceComponent2
                   v-for="exp in experiences"
                   :key="exp.id"
@@ -92,7 +92,7 @@ import { ref } from "vue";
 // Remove the provide/inject pattern
 const activeExperienceId = ref(null);
 
-const skills = ["Vue.js", "JavaScript", "HTML", "CSS", "Python"];
+const skills = ["Vue.js", "JavaScript", "HTML", "CSS", "Python", "PowerBI"];
 const experiences = [
   {
     id: "exp1",
@@ -179,6 +179,12 @@ const education = [
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.experienceComponent {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
 }
 
 .second-layer.show {

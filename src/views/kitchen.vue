@@ -1,35 +1,29 @@
 <template>
   <div class="d-flex flex-row flex-wrap gap-4 justify-center">
-    <educationComponent2
-      v-for="edu in education"
-      :key="edu.id"
-      :education="edu.school"
-      :description="edu.subject"
-      :year="edu.year"
-      :imageSrc="edu.image"
-    />
+    <skillsTagComponent
+      v-for="skill in skills"
+      :key="skill.name"
+      :text="skill.name"
+      :imageSrc="skill.image"
+    ></skillsTagComponent>
   </div>
 </template>
 
 <script setup>
 import educationComponent2 from "../components/educationComponent2.vue";
 import { ref } from "vue";
+import skillsTagComponent from "../components/skillsTagComponent.vue";
 
-const education = [
+const skills = [
   {
-    id: "edu1",
-    school: "Gamuda AI Academy",
-    subject: "AI and Full Stack Development",
-    year: "January - March 2025",
-    image: "src/assets/GamudaAIAcademy/IMG_3430.JPG",
+    name: "Vue.js",
+    image: "src/assets/logos/vue.svg",
   },
-  {
-    id: "edu2",
-    school: "University of Nottingham",
-    subject: "MEng in Chemical Engineering",
-    year: "September 2017 - August 2021",
-    image: "src/assets/Nottingham/IMG_3498.JPG",
-  },
+  { name: "JavaScript", image: "src/assets/logos/Javascript-logo.png" },
+  { name: "HTML", image: "src/assets/logos/html-5.png" },
+  { name: "CSS", image: "src/assets/logos/CSS3.webp" },
+  { name: "Python", image: "src/assets/logos/python-logo.png" },
+  { name: "PowerBI", image: "src/assets/logos/powerBI.png" },
 ];
 </script>
 
