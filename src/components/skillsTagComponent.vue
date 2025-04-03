@@ -35,7 +35,7 @@ defineProps({
   right: 0;
   bottom: 0;
   border-radius: 50px;
-  padding: 3px; /* This is your border width */
+  padding: 2px; /*border width*/
   background: linear-gradient(30deg, #a78bfa, #fbcfe8);
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);

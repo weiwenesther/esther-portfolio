@@ -87,20 +87,19 @@ const experiences = [
     experience: "Process and Equipment Engineer @ Intel Corporation",
     year: "October 2021 - January 2025",
     description: [
-      "Developed full-stack applications",
-      "Led a team of 5 developers",
+      "Led cross-functional teams using statistical analysis and data-driven problem-solving to optimize processes and equipment.",
     ],
-    skills: ["Vue.js", "JavaScript", "Node.js", "Express"],
+    skills: ["PowerBI", "JMP", "Process Optimization"],
   },
   {
     id: "exp2",
-    experience: "Process and Equipment Engineer @ Intel Corporation",
-    year: "October 2021 - January 2025",
+    experience: "Research Assistant @ The University of Nottingham Malaysia",
+    year: "June 2020 - September 2020",
     description: [
-      "Developed full-stack applications",
-      "Led a team of 5 developers",
+      "Developed an artificial neural network (ANN) model in MATLAB to predict adsorption processes in wastewater treatment.",
+      "Authored a technical paper on the research findings.",
     ],
-    skills: ["Vue.js", "JavaScript", "Node.js", "Express"],
+    skills: ["MATLAB", "Technical Writing", "Machine Learning"],
   },
 ];
 </script>

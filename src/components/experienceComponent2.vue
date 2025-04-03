@@ -123,6 +123,8 @@ defineEmits(["mouse-enter"]);
   padding: 15px;
   border-radius: 8px;
   background-color: rgba(255, 255, 255, 0.05);
+  width: 580px;
+  max-width: 100%;
 }
 
 .inactive-content-container {
@@ -134,6 +136,7 @@ defineEmits(["mouse-enter"]);
   flex-wrap: wrap;
   gap: 3px;
   margin-top: 15px;
+  justify-content: space-evenly;
 }
 
 /* Fade transition */

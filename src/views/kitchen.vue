@@ -1,13 +1,17 @@
 <template>
-  <div>
-    <experienceComponent2
-      v-for="exp in experiences"
-      :key="exp.id"
-      v-bind="exp"
-      :is-active="activeExperienceId === exp.id"
-      @mouse-enter="activeExperienceId = exp.id"
-    />
-  </div>
+  <v-row>
+    <v-col>
+      <div class="d-flex flex-row flex-wrap gap-4 justify-center">
+        <experienceComponent2
+          v-for="exp in experiences"
+          :key="exp.id"
+          v-bind="exp"
+          :is-active="activeExperienceId === exp.id"
+          @mouse-enter="activeExperienceId = exp.id"
+        />
+      </div>
+    </v-col>
+  </v-row>
 </template>
 
 <script setup>
