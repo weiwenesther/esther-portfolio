@@ -55,18 +55,18 @@ const handleMouseLeave = () => {
   isHovered.value = false;
 };
 
-const mouseY = ref(0);
+const mouseX = ref(0);
 
 const imagePosition = computed(() => {
   return {
-    top: `${mouseY.value}px`,
-    transform: "translateY(-50%)",
+    left: `${mouseX.value}px`,
+    transform: "translateX(-50%)",
   };
 });
 
 const handleMouseMove = (event) => {
   // Get the mouse position relative to the viewport
-  mouseY.value = event.clientY;
+  mouseX.value = event.clientX;
 };
 </script>
 
@@ -77,12 +77,12 @@ const handleMouseMove = (event) => {
   align-items: center;
   width: 100%;
   max-width: 800px;
-  margin: 20px 0;
+  margin: 20px;
 }
 
 .image-container {
   position: fixed;
-  left: calc(50% + 150px); /* Position it to the right of the center */
+  top: calc(50% + 100px); /* Position it to the right of the center */
   width: 300px;
   height: auto;
   border-radius: 8px;
@@ -94,6 +94,8 @@ const handleMouseMove = (event) => {
 
 .hover-box {
   width: 100%;
+  max-height: 100px;
+  height: 100%;
   padding: 20px;
   background-color: rgba(255, 255, 255, 0.05);
   border-radius: 8px;
@@ -113,6 +115,8 @@ const handleMouseMove = (event) => {
   display: flex;
   flex-direction: column;
   gap: 8px;
+  align-items: center;
+  justify-content: center;
 }
 
 .education-title {
@@ -134,7 +138,8 @@ const handleMouseMove = (event) => {
 }
 
 .education-year {
-  font-size: 0.8rem;
+  font-size: 0.9rem;
+  font-weight: bold;
   color: #e0a6f4;
 }
 

@@ -51,14 +51,14 @@
         </v-container>
 
         <!-- Education section -->
-        <v-container class="section d-flex justify-center align-center">
+        <v-container class="educationWrapper">
           <v-row>
             <v-col cols="12" class="text-center">
               <sectionComponent section="Education"></sectionComponent>
             </v-col>
 
             <v-col cols="12" class="text-center">
-              <div class="d-flex flex-row flex-wrap gap-4 justify-center">
+              <div class="eduContainer">
                 <educationComponent2
                   v-for="edu in education"
                   :key="edu.id"
@@ -196,6 +196,17 @@ const education = [
   display: flex;
   justify-content: center;
   align-items: flex-start;
+}
+
+.educationWrapper {
+  height: 100%;
+  min-height: 500px;
+}
+
+.eduContainer {
+  display: flex;
+  height: 100%;
+  max-height: 600px;
 }
 
 .second-layer.show {

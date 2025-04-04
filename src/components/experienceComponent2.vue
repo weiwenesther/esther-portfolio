@@ -82,7 +82,7 @@ defineEmits(["mouse-enter"]);
   border-radius: 10px;
   margin: 10px;
   padding: 10px;
-  width: 580px;
+  max-width: 580px;
   height: auto;
   border: 2px solid #81b3fe;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -90,7 +90,8 @@ defineEmits(["mouse-enter"]);
 
 .button:hover {
   transform: scale(1.02);
-  box-shadow: 0 0 15px rgba(129, 179, 254, 0.5), 0 0 30px rgba(224, 166, 244, 0.3);
+  box-shadow: 0 0 15px rgba(129, 179, 254, 0.5),
+    0 0 30px rgba(224, 166, 244, 0.3);
 }
 
 .button-content {
@@ -123,7 +124,7 @@ defineEmits(["mouse-enter"]);
   padding: 15px;
   border-radius: 8px;
   background-color: rgba(255, 255, 255, 0.05);
-  width: 580px;
+  max-width: 580px;
   max-width: 100%;
 }
 
