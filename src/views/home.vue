@@ -198,10 +198,10 @@ const education = [
   align-items: flex-start;
 }
 
-.educationWrapper {
+/* .educationWrapper {
   height: 100%;
   min-height: 500px;
-}
+} */
 
 .eduContainer {
   display: flex;
