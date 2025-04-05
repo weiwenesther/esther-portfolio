@@ -15,7 +15,7 @@
         <v-container class="section d-flex justify-center align-center">
           <headerComponent
             title="Hello! I'm Esther."
-            subtitle="An Engineer turned Software Developer."
+            subtitle="Engineer turned Software Developer."
             aboutMe="AI-driven web developer with a strong analytical background in process optimization and data-driven problem-solving. Experienced in integrating AI into full-stack applications. Passionate about building intelligent, user-friendly digital solutions that enhance efficiency and decision-making."
           ></headerComponent>
         </v-container>
@@ -174,7 +174,7 @@ const education = [
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat; */
-  background-color: #1a181b;
+  background-color: #121214;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -197,13 +197,15 @@ const education = [
   min-height: 110vh;
   min-width: 100%;
   width: 100%;
-  background-color: #27272c;
+  background-color: #1d1d20;
   z-index: 3;
   display: flex;
   gap: 50px; /* Add padding between each section*/
-  padding: 50px 0;
+  padding: 15px 0;
   flex-direction: column;
   border-radius: 30px 30px 0 0;
+  border-top: 2px solid rgba(129, 179, 254, 0.7);
+  box-shadow: 0 -5px 15px rgba(224, 166, 244, 0.3);
   overflow-x: hidden;
 }
 

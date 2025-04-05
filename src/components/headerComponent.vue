@@ -36,7 +36,13 @@ defineProps({
 .title {
   font-size: clamp(40px, 8vw, 96px);
   font-weight: bold;
-  background: linear-gradient(30deg, #ab83fe 0%, #a9fe81 100%);
+  background: linear-gradient(
+    30deg,
+    #ab83fe 0%,
+    #fe81e5 33%,
+    #81fea9 66%,
+    #81c0fe 100%
+  );
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -45,7 +51,13 @@ defineProps({
 .subtitle {
   font-weight: 600;
   font-size: clamp(24px, 5vw, 68px);
-  background: linear-gradient(30deg, #a9fe81 0%, #c0f0ff 100%);
+  background: linear-gradient(
+    30deg,
+    #a9fe81 0%,
+    #81fefe 33%,
+    #c0f0ff 66%,
+    #fe81a9 100%
+  );
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -59,5 +71,23 @@ defineProps({
   font-family: "Just Me Again Down Here", cursive;
   letter-spacing: 2px;
   margin-top: 20px;
+}
+
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.title,
+.subtitle {
+  background-size: 300% 300%;
+  animation: gradientMove 8s ease-in-out infinite;
 }
 </style>

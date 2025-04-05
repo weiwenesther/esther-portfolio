@@ -82,7 +82,7 @@ const handleMouseMove = (event) => {
 
 .image-container {
   position: fixed;
-  top: calc(50% + 100px); /* Position it to the right of the center */
+  top: calc(50% + 180px); /* Position it to the right of the center */
   width: 300px;
   height: auto;
   border-radius: 8px;
@@ -97,7 +97,7 @@ const handleMouseMove = (event) => {
   max-height: 100px;
   height: 100%;
   padding: 20px;
-  background-color: rgba(255, 255, 255, 0.05);
+  background-color: rgba(255, 255, 255, 0.04);
   border-radius: 8px;
   transition: all 0.3s ease;
   border-left: 3px solid transparent;
@@ -121,7 +121,7 @@ const handleMouseMove = (event) => {
 
 .education-title {
   margin: 5px;
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   font-weight: bold;
   background: linear-gradient(90deg, #ab83fe, #fbae96);
   -webkit-background-clip: text;
@@ -129,7 +129,7 @@ const handleMouseMove = (event) => {
 }
 
 .education-description {
-  font-size: 0.9rem;
+  /* font-size: 0.9rem; */
   font-weight: bold;
   margin: 5px;
   background: linear-gradient(90deg, #c0f0ff, #a9fe81);

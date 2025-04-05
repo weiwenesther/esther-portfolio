@@ -86,6 +86,7 @@ defineEmits(["mouse-enter"]);
   height: auto;
   border: 2px solid #81b3fe;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background-color: transparent;
 }
 
 .button:hover {
