@@ -1,29 +1,21 @@
 <template>
-  <div class="d-flex flex-row flex-wrap gap-4 justify-center">
-    <skillsTagComponent
-      v-for="skill in skills"
-      :key="skill.name"
-      :text="skill.name"
-      :imageSrc="skill.image"
-    ></skillsTagComponent>
-  </div>
+  <socialsComponent
+    v-for="social in socials"
+    :name="social.name"
+    :imageUrl="social.imageUrl"
+    :link="social.link"
+  />
 </template>
 
 <script setup>
-import educationComponent2 from "../components/educationComponent2.vue";
-import { ref } from "vue";
-import skillsTagComponent from "../components/skillsTagComponent.vue";
+import socialsComponent from "../components/socialsComponent.vue";
 
-const skills = [
+const socials = [
   {
-    name: "Vue.js",
-    image: "src/assets/logos/vue.svg",
+    name: "LinkedIn",
+    imageUrl: "src/assets/logos/linkedin.png",
+    link: "https://www.linkedin.com/in/esther-wei-wen-wee-97b423177/",
   },
-  { name: "JavaScript", image: "src/assets/logos/Javascript-logo.png" },
-  { name: "HTML", image: "src/assets/logos/html-5.png" },
-  { name: "CSS", image: "src/assets/logos/css3.png" },
-  { name: "Python", image: "src/assets/logos/python-logo.png" },
-  { name: "PowerBI", image: "src/assets/logos/powerBI.png" },
 ];
 </script>
 
