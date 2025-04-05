@@ -1,6 +1,15 @@
 <template>
   <v-app>
     <div class="wrapper">
+      <!-- Socials section -->
+      <div class="socialsContainer">
+        <socialsComponent
+          v-for="social in socials"
+          :name="social.name"
+          :imageUrl="social.imageUrl"
+          :link="social.link"
+        />
+      </div>
       <!-- Introduction (fixed banner)-->
       <div class="banner">
         <v-container class="section d-flex justify-center align-center">
@@ -80,15 +89,19 @@
 import headerComponent from "../components/headerComponent.vue";
 import sectionComponent from "../components/sectionComponent.vue";
 import skillsTagComponent from "../components/skillsTagComponent.vue";
-import experienceComponent from "../components/experienceComponent.vue";
-import quotesComponent from "../components/quotesComponent.vue";
-import descriptionComponent from "../components/descriptionComponent.vue";
-import pictureStackComponent from "../components/pictureStackComponent.vue";
-import educationComponent from "../components/educationComponent.vue";
 import experienceComponent2 from "../components/experienceComponent2.vue";
 import educationComponent2 from "../components/educationComponent2.vue";
+import socialsComponent from "../components/socialsComponent.vue";
 
 import { ref } from "vue";
+
+const socials = [
+  {
+    name: "LinkedIn",
+    imageUrl: "src/assets/logos/linkedin.png",
+    link: "https://www.linkedin.com/in/esther-wei-wen-wee-97b423177/",
+  },
+];
 
 const skills = [
   {
@@ -168,6 +181,15 @@ const education = [
   z-index: 1;
 }
 
+.socialsContainer {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 2;
+  display: flex;
+  gap: 10px;
+}
+
 .second-layer {
   position: absolute;
   top: 90vh;
@@ -176,7 +198,7 @@ const education = [
   min-width: 100%;
   width: 100%;
   background-color: #27272c;
-  z-index: 2;
+  z-index: 3;
   display: flex;
   gap: 50px; /* Add padding between each section*/
   padding: 50px 0;

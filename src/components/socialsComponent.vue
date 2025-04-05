@@ -1,18 +1,22 @@
-<!-- Johnny why does this code not work -->
-<!-- <template>
-  <v-btn :href="link" target="_blank" class="social-btn">
+<template>
+  <v-btn @click="navigateToLink" class="social-btn">
     <img :src="imageUrl" class="social-icon" />
   </v-btn>
-</template> -->
+</template>
 
-<template>
+<!-- <template>
   <a :href="link" target="_blank" rel="noopener" class="social-btn">
     <img :src="imageUrl" class="social-icon" />
   </a>
-</template>
+</template> -->
 
 <script setup>
-defineProps({
+// Functions defined for v-btn
+const navigateToLink = () => {
+  window.open(props.link, "_blank", "noopener");
+};
+
+const props = defineProps({
   name: {
     type: String,
     required: true,
@@ -26,6 +30,21 @@ defineProps({
     required: true,
   },
 });
+
+// defineProps({
+//   name: {
+//     type: String,
+//     required: true,
+//   },
+//   imageUrl: {
+//     type: String,
+//     required: true,
+//   },
+//   link: {
+//     type: String,
+//     required: true,
+//   },
+// });
 </script>
 
 <style scoped>
